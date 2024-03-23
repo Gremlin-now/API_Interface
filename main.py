@@ -59,7 +59,7 @@ def AddToNeural():
     except ValidationError as e:
         return "Bad Request", 400
 
-    neural.append((result['ChatId'], result['MessageId'], result['MessageText']))
+    neural.append((result['chat_id'], result['msg_id'], result['content']))
 
     embeddings = OpenAIEmbeddings(api_key=openAi_key)
     vector = embeddings.embed_query(str(result))
